@@ -1,15 +1,6 @@
-var largerSize=document.querySelector(".bigger");
-var smallerSize=document.querySelector(".smaller");
-var para = document.querySelector(".size");
-function largSize(){
- 
- para.classList.remove("small");
- para.classList.add("big");
+var language =['c++','java','c'];
+var data="";
+for(var i=0;i<3;i++){
+data+=`<li>`+language[i]+`</li>`;
 }
-function smallSize(){
-    para.classList.remove("big");
-    para.classList.add("small");
-}
-
-smallerSize.onclick = smallSize;
-largerSize.onclick = largSize;
+document.querySelector("ul").innerHTML =data;
