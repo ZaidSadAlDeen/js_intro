@@ -1,15 +1,14 @@
-async function getPizza() {
-    const response = await fetch(`https://forkify-api.herokuapp.com/api/search?q=pizza`);
-    const data = await response.json();
-    const recipes = data.recipes;
-    const result = recipes.map(function(ele) {
+const getProducts = async() => {
+    const { data } = await axios.get(`https://fakestoreapi.com/products`);
+    console.log(data);
+    const result = data.map((element) => {
         return `
-        <div class="recipes">
-        <h2>${ele.title}</h2>
-        <img src="${ele.image_url}" width=600px>
-        </div>
+        <h2>${element.title}</h2>
+        <img src="${element.image}" width=500px height=500px>
+        <a href="details.html?id=${element.id}">details</a>
         `
     }).join('');
-    document.querySelector("body").innerHTML = result;
+
+    document.querySelector(`body`).innerHTML = result;
 }
-getPizza();
+getProducts();
